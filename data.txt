@@ -1,0 +1,10 @@
+Maasai Mara National Reserve,-1.4931,35.1439,1500,Narok
+Amboseli National Park,-2.6454,37.2605,3920,Kajiado
+Tsavo East National Park,-2.6355,38.6430,13747,Taita-Taveta
+Tsavo West National Park,-3.3168,38.1358,9065,Taita-Taveta
+Lake Nakuru National Park,-0.3667,36.0833,188,Nakuru
+Samburu National Reserve,0.5477,37.5291,165,Samburu
+Nairobi National Park,-1.3733,36.8583,117,Nairobi
+Hell's Gate National Park,-0.8815,36.3107,68,Nakuru
+Aberdare National Park,-0.4000,36.7000,767,Aberdare
+Mount Kenya National Park,-0.1500,37.3000,715,Kirinyaga

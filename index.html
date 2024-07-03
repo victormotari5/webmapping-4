@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>National Parks Map</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        #map { height: 90vh; }
+        .button-container {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 1000;
+        }
+        .button-container button {
+            padding: 15px 30px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .button-container button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="button-container">
+        <button onclick="window.location.href='/database'">Database</button>
+    </div>
+    <div id="map"></div>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+        var map = L.map('map').setView([-1.286389, 36.817223], 6); // Center map on Kenya
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        fetch('/api/locations')
+            .then(response => response.json())
+            .then(data => {
+                data.forEach(location => {
+                    var marker = L.marker([location.latitude, location.longitude]).addTo(map);
+                    marker.bindPopup(`
+                        <b>${location.name}</b><br>
+                        Latitude: ${location.latitude}<br>
+                        Longitude: ${location.longitude}<br>
+                        Area: ${location.area_sq_km} km²<br>
+                        County: ${location.county}
+                    `);
+                });
+            });
+    </script>
+</body>
+</html>
